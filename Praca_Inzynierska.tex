@@ -46,7 +46,7 @@
     \\ \\
     Równie ważną częścią dbania o Swoje ciało, oprócz treningów siłowych, jest 
     zastosowanie odpowiedniej diety. Nie jest to zadanie trywialne, ponieważ jest 
-    ono w pełni zależne od zapotrzebowania osoby zainteresowaniej, stąd istnienie
+    ono w pełni zależne od zapotrzebowania osoby zainteresowanej, stąd istnienie
     zawodów takich jak "dietetyk". W związku z tym wiele osób zainteresowanych
     rozpoczęciem procesu odchudzania sięga po jedną z najprostszych i skutecznych
     metod, a mianowicie liczenie zjedzonych kalorii. Rekomendowana ilość
@@ -91,6 +91,10 @@
 
     \color{red} ???????????????
   }
+  %\subsection{Keywords}
+  %{
+
+  %}
 }
 
 \section{Teoria}
@@ -161,13 +165,13 @@
     Jednak urządzenia mobilne były i są w stanie zaoferować dużą większą wygodę 
     użytkowania, przenośność, oraz system znacznie łatwiejszy do przyswojenia dla 
     przeciętnego człowieka, nie wymagający szczególnej wiedzy do poprawnego
-    zarządzania. Stąd u młodzierzy umiejętności obsługi komputerów stacjonarnych
+    zarządzania. Stąd u młodzieży umiejętności obsługi komputerów stacjonarnych
     zaczęła zanikać, jako że przestaje ona być tak kluczowa jak była jeszcze 10 lat
     temu. Jak podaje strona Broadbandsearch \cite{dvm}, już w 2016 roku większość "ruchu"
     internetowego była spowodowana przez urządzenia mobilne, bo aż 51.3\%, i po 
-    rok 2021 oscyluje stabilnie w granicach 52\%. Jak podaje ten sam portal, róznice
-    pomiędzy rokiem 2013, a 2019 w ilości czasu spędzanego dziennie na użytkowaniu
-    smartphonów i desktopów wygląda następująco:
+    rok 2021 oscyluje stabilnie w granicach 52\%. Jak podaje ten sam portal,
+    różnice pomiędzy rokiem 2013, a 2019 w ilości czasu spędzanego dziennie na 
+    użytkowaniu smartphonów i desktopów wygląda następująco:
     \begin{itemize}
       \item Średni czas użytkowania komputerów/laptopów spadł ze 144 minut dziennie, do 128 minut
       \item Średni czas użytkowania urządzeń mobilnych wzrósł z 88 minut, do średnio 203 minut dziennie 
@@ -189,16 +193,16 @@
   {
     Popularną opinią jest, iż lenistwo idzie w parze z ludzkim rozwojem 
     technologicznym. Wiele przypadków potwierdza tą regułę, sam Bill Gates, założyciel
-    firmy Microsoft powiedział: 
+    firmy Microsoft powiedział:\\ 
     “I choose a lazy person to do a hard job. 
     Because a lazy person will find an easy way to do it.”
     W duchu tych słów, ludzie jako rasa mają w zwyczaju być leniwymi, dlatego
-    naturalną rzeczą stał się fakt, iż pisanie słów nie jest najbardziej optymalną 
-    techniką "porozumiewania się" z maszynami.
+    naturalną rzeczą stał się fakt, iż pisanie na klawiaturze nie jest najbardziej 
+    optymalną techniką "porozumiewania się" z maszynami.
     
-    Już w roku 1952, Bell Laboratories stworzyło system "Audrey", który był w stanie 
-    rozpoznać wypowiedziane pojedyńcze cyfry. 10 lat później, "Shoebox" od IBM mógł 
-    zrozumieć i odpowiedzieć na 16 słówek w języku Angielskim \cite{speech_history}.
+    W roku 1952, Bell Laboratories stworzyło system "Audrey", który był w stanie 
+    rozpoznać wypowiedziane pojedyńcze cyfry, a 10 lat później, "Shoebox" od IBM
+    mógł zrozumieć i odpowiedzieć na 16 słówek w języku Angielskim \cite{speech_history}.
     W latach siedemdziesiątych XX wieku, Amerykański Departament Obrony rozpoczął
     projekt o nazwie "SUR" - The Speech Understanding Research, którego owocem
     był "Harpy", system będący w stanie rozpoznać 1000 słów. Współzawodnictwo wielu
@@ -231,28 +235,39 @@
     efektywniejsza i bardzo możliwe jest, iż stanie się ona głównym interfejsem służącym
     komunikacji pomiędzy człowiekiem, a maszyną. 
 
-    "Speech Recognition", zwłaszcza w dzisiejszych czasach, opiera się na algorytmach
-    sztucznej inteligencji. Proces analizy rozpoczyna się od zebrania informacji
-    dźwiękowej, zwykle przy użyciu mikrofonu, i już na tym stadium pojawiają się
-    pierwsze problemy, takie jak:
+    Przez większą część historii technologii "Speech Recognition", 
+    najpopularniejszą metodą był HMM - "Hidden Markov Model" \cite{markov_article},
+    opracowany już w latach osiemdziesiątych. W dużym skrócie, zamiast używania 
+    słów i szukania w nich dźwiękowego wzorca, ma on za zadanie przewidzieć
+    prawdopodobieństwo tego, że nieznane dźwięki mogą być słowami.\\   
+    Proces analizy rozpoczyna się od zebrania informacji dźwiękowej,
+    zwykle przy użyciu mikrofonu, i już na tym stadium pojawiają się pierwsze 
+    problemy, takie jak:
     \begin{itemize}
       \item wyłapanie odpowiednich słów spośród dźwięków tła - szumu samochodów na 
       ulicy, lub inne osoby rozmawiające w bliskiej odległości.
       \item w przypadku szybko mówiącego rozmówcy, rozróżnienie w którym momencie
       wypowiedzi słowa kończą się, oraz kiedy zaczynają się kolejne.
-      \item rozróżnienie różnych akcentów i sposobów mówienia pojedynczych jednostek,
+      \item rozróżnianie różnych akcentów i sposobów mówienia pojedynczych jednostek,
       na przykład to samo zdanie wypowiedziane przez 10 letnią dziewczynkę, brzmieć
       będzie zupełnie inaczej, wypowiedziane przez 70 letniego mężczyznę. 
-      \item odróżnienie homofonów - słów wymawianych w ten sam sposób, ale mających
+      \item odróżnianie homofonów - słów wymawianych w ten sam sposób, ale mających
       inne znaczenie
       \item poprawne zinterpretowanie zdań brzmiących w bardzo podobny sposób, ale
       oznaczających zupełnie różne rzeczy
     \end{itemize} 
     Dodatkowo, różne języki mają różną gramatyczną strukturę, co dodatkowo utrudnia
     stworzenie zunifikowanego systemu, zdolnego do przetwarzania wielu języków w 
-    podobny sposób.
+    podobny sposób.\\
+    Kolejnym krokiem jest przetworzenie zebranych danych na spektogram przy użyciu
+    Szybkiej Transformaty Fouriera \cite{fourier}, oraz rozszczepienie
+    rezultatu na mniejsze części, które poddawane są analizie mającej na celu
+    określenie w jakich momentach znajdują się słowa. Następnie każde z nich są
+    porównywane pod względem fonetycznego brzmienia i w ten sposób program stara
+    się przewidzieć dokładne słowo, wypowiedziane przez użytkownika.
 
-
+    W dzisiejszych czasach, technologia rozpoznawania mowy w głównej mierze opiera
+    się na algorytmach sztucznej inteligencji połączonych z HMM.
   }
   \subsection{Bazy danych i ich rodzaje}
   {
