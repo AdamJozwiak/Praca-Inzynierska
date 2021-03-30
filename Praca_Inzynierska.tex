@@ -10,6 +10,7 @@
 \usepackage{setspace}
 \usepackage{float}
 \usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{subcaption}
 
 \addbibresource{bibliografia.bib}
 \graphicspath{{./zdjecia/}}
@@ -43,7 +44,7 @@
     społecznościowych i chęcią pokazania Swoich zdjęć na forum publicznym sprawił, 
     że co roku znacznie zwiększa się ogólna ilość ludzi chętnych do uczęszczania na
     siłownię i odbywania regularnych treningów.
-    \\ \\
+
     Równie ważną częścią dbania o Swoje ciało, oprócz treningów siłowych, jest 
     zastosowanie odpowiedniej diety. Nie jest to zadanie trywialne, ponieważ jest 
     ono w pełni zależne od zapotrzebowania osoby zainteresowanej, stąd istnienie
@@ -137,7 +138,7 @@
     zaobserwować na raporcie przygotowanym przez firmę StatCounter \cite{os}.
     \begin{figure}[H]
       \centering
-      \includegraphics[width=0.9\textwidth]{android_chart.png}
+      \includegraphics[width=.9\textwidth]{android_chart.png}
       \caption{Wykres udziału w rynku poszczególnych mobilnych systemów operacyjnych na przestrzeni 12 lat}
       \label{fig:android}
     \end{figure}
@@ -152,13 +153,13 @@
     zaczęły przypominać swoich stacjonarnych braci. 
     \begin{figure}[H]
       \centering
-      \includegraphics[width=0.9\textwidth]{systems_chart1.png}
+      \includegraphics[width=.9\textwidth]{systems_chart1.png}
       \caption{Komputery, a smartphony na przestrzeni lat 2013-2016}
       \label{fig:2013}
     \end{figure} 
     \begin{figure}[H]
       \centering
-      \includegraphics[width=0.9\textwidth]{systems_chart2.png}
+      \includegraphics[width=.9\textwidth]{systems_chart2.png}
       \caption{Komputery, a smartphony na przestrzeni lat 2016-2019}
       \label{fig:2016}
     \end{figure} 
@@ -279,11 +280,232 @@
   }
   \subsection{API}
   {
+    W wielu przypadkach przy tworzeniu aplikacji, programiści muszą zawrzeć
+    informacje, których samodzielne wypisanie i skatalogowanie mogłoby zająć
+    więcej czasu, niż sam proces pisania oprogramowania. Pojawia się również
+    pytanie po co to wszystko robić, skoro wcześniej zrobił to już ktoś inny i
+    dał on dostęp do pożądanych funkcjonalności. Dodatkowo co jeśli dana aplikacja
+    jest zależna od innej usługi, przykładowo w przypadku gdy programista chciałby
+    mieć dostęp do aktualnej pogody w dowolnym rejonie na świecie? Napisanie algorytmu
+    będącego w stanie stworzyć model pogodowy, poprzez komunikację ze stacjami,
+    lub satelitami pogodowymi na całym świecie w celu zebrania, przetworzenia, i 
+    przewidzenia warunków pogodowych brzmi jak wielki projekt sam w sobie.
+    Z pomocą przychodzą API, czyli Application Programming Interface, mające za 
+    zadanie nie tylko ułatwić programistom tworzenie aplikacji, ale także 
+    umożliwić komunikację pomiędzy różnymi usługami. Czym w takim razie dokładnie jest API?
 
+    W momencie gdy przeciętny użytkownik chciałby wejść na witrynę internetową 
+    "www.facebook.com", aby sprawdzić swój profil, lub przeczytać wiadomości, 
+    przeglądarka próbuje wysłać zapytanie do serwera firmy Facebook, z prośbą o
+    przekazanie informacji o tym jak wygląda strona, oraz o dostosowanie jej pod
+    konkretnego użytkownika. Serwer odsyła wtedy potrzebne informacje, które przeglądarka,
+    znana inaczej jako "klient", jest w stanie zinterpretować, a następnie wyświetlić 
+    pożądany przez użytkownika wynik. Dla klienta, serwer Facebook'a jest API, co oznacza,
+    że za każdym razem gdy dana osoba chce wejść na jakąkolwiek stronę internetową,
+    wchodzi ona w interakcję z API danego serwera, nie znaczy to jednak, że jest ono
+    tożsame z samym serwerem. Jest to jedynie jego część, odpowiedzialna za przetwarzanie
+    zapytań i wysyłanie odpowiedzi - pakietów informacji mogących przybrać rozmaite formy,
+    w zależności od potrzeb.
+    
+    Istnieje wiele rodzajów API, mogą się dzielić na różne typy, ale także posiadać
+    odmienne architektury. Głównymi typami API są:
+    \begin{itemize}
+      \item Open APIs - znane również jako API publiczne, są szeroko dostępne do użytku z
+      minimalnymi ograniczeniami. Mogą być albo w pełni "otwarte", lub wymagać jedynie
+      klucza API - ciągu znaków dzięki którym API będzie mogła zidentyfikować aplikację
+      do której przesyłane będą dane.
+      \item Internal APIs - w przeciwieństwie do Open APIs, są one "ukryte" i przeznaczone
+      do użytku wewnątrz firm, w celu przekazywania zasobów pomiędzy zespołami danej spółki.
+      \item Partner APIs - są one podobne do Open APIs, jednak dostęp do nich jest
+      ograniczony, często wymagający opłaty.
+      \item Composite APIs - typ, mający za zadanie dać dostęp do różnych serwisów i
+      źródeł danych jednocześnie. Są one szczególnie użyteczne w architekturze
+      mikroserwisowej \cite{microservices}, gdzie aby wykonać jedno zadanie, użytkownik
+      może potrzebować informacji od paru serwisów jednocześnie. Używanie Composite APIs
+      może zredukować obciążenie serwera i poprawić płynność działąnia aplikacji.
+    \end{itemize}
+    Architektury API mają za zadanie sprecyzować ograniczenia nakładane na różne 
+    protokoły, definiujące zasady którymi należy się kierować przy wysyłaniu zapytań -
+    jakie komendy należy użyć, oraz jakie typy danych są akceptowalne. Najpopularniejszymi
+    architekturami i protokołami są:
+    \begin{itemize}
+      \item REST (Representational State Transfer) - w przeciwieństwie do innych 
+      wymienionych nie jest protokołem. Kilkoma przykładowymi i najważniejszymi warunkami
+      jakie powinien spełniać interfejs API RESTful korzystający z protokołu HTTP są
+      \cite{rest}:
+      \begin{itemize}
+        \item Interfejsy API REST są oparte na zasobach — dowolnym obiekcie, danych lub 
+        usłudze, które są dostępne dla klienta.
+        \item Zasób ma identyfikator URI służący do unikatowej jego identyfikacji.
+        \item Interakcja klientów z usługą odbywa się przez wymianę reprezentacji zasobów.
+        Najczęściej używanym formatem wymiany danych jest notacja JSON.
+        \item Interfejsy API REST korzystają z ujednoliconego interfejsu, co ułatwia 
+        rozdzielenie implementacji klienta od implementacji usługi.
+        \item Interfejsy API REST korzystają z bezstanowego modelu żądań. Żądania HTTP 
+        powinny być niezależne i mogą występować w dowolnej kolejności, dlatego 
+        zachowywanie informacji o stanie przejściowym między żądaniami nie jest możliwe.
+        Informacje są przechowywane jedynie w zasobach, a każde żądanie powinno być 
+        niepodzielną operacją.
+        \item Interfejsy API REST są sterowane za pomocą hipermedialnych linków, 
+        zawartych w reprezentacji.
+      \end{itemize}
+      \item JSON-RPC i XML-RPC (Remote Procedural Call Protocol) - żądanie może posiadać
+      wiele parametrów, ale oczekiwać tylko jednego rezultatu. W przeciwieństwie do 
+      architektury REST, nie działa na zasobach, ale na wywoływaniu odpowiednich metod,
+      a identyfikator URI zamiast zasobu identyfikuje serwer, stąd nie przechowuje żadnych
+      informacji w swoich parametrach. Oba protokoły różnią się od siebie jedynie notacją,
+      za pomocą której są zakodowane wywołania.
+      \item SOAP (Simple Object Access Protocol) - protokół oparty na notacji XML, używający
+      do komunikacji protokołu HTTP. Został on zaprojektowany jako pośrednik, umożliwiający
+      łatwą komunikację pomiędzy aplikacjami napisanymi w różnych językach programowania.
+    \end{itemize} 
   }
   \subsection{Analiza konkurencyjnych rozwiązań}
   {
-
+    Istnieje bardzo dużo aplikacji oferujących możliwość liczenia kalorii, jednak w 
+    większości różnią się one jedynie szatą graficzną, oraz dostępem do funkcjonalności,
+    których część jest nieczęsto niedostępna do darmowego użytkowania.
+    \subsubsection{Fitatu}
+    {
+      Jest to aplikacja najprostsza w obsłudze z pozostałych rozwiązań, jako że stara się
+      zawrzeć jak najwięcej informacji i funkcjonalności na głównej stronie co jednocześnie
+      ułatwia jej użytkowanie, ale przekłada się na jej czytelność, ukazując duże ilości
+      tekstu, co może przytłoczyć nowego użytkownika.
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=.4\textwidth]{fitatu_pro_1.jpg}
+        \caption{Fitatu - Ekran główny}
+        \label{fig:fit1}
+      \end{figure} 
+      Do największych zalet aplikacji należą:
+      \begin{itemize}
+        \item Rozpisanie najpopularniejszych posiłków jednego pod drugim, co ułatwia
+        rozplanowanie kolejnych dań.
+        \item Menu aplikacji jest modyfikowalne, pozwala na określenie w których godzinach
+        jest spożywany dany posiłek, oraz na łatwe zmodyfikowanie celów użytkownika.
+        \begin{figure}[H]
+          \centering
+          \begin{subfigure}{.5\textwidth}
+            \centering
+            \includegraphics[width=.8\linewidth]{fitatu_pro_2.jpg}
+            \caption{Ekran modyfikacji rozkładu dnia}
+            \label{fig:subfit1}
+          \end{subfigure}%
+          \begin{subfigure}{.5\textwidth}
+            \centering
+            \includegraphics[width=.8\linewidth]{fitatu_pro_3.jpg}
+            \caption{Ekran modyfikacji celów użytkownika}
+            \label{fig:subfit2}
+          \end{subfigure}
+          \caption{Fitatu - Ekrany modyfikacji}
+          \label{fig:fit2}
+        \end{figure} 
+        \item Aplikacja posiada bardzo dokładną listę najróżniejszych składników odżywczych,
+        rozpisanych w bardzo przejrzysty sposób, co pozwala na niezwykle szczegółowe
+        rozplanowanie diety
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.4\textwidth]{fitatu_pro_4.jpg}
+          \caption{Fitatu - Ekran szczegółowego podsumowania}
+          \label{fig:fit3}
+        \end{figure} 
+        \item W aplikacji jest dostępny za darmo czarny motyw, co zwiększa komfort
+        użytkowania i nie męczy wzrok, zwłaszcza w porach nocnych
+      \end{itemize}
+      Do największych wad można zaliczyć:
+      \begin{itemize}
+        \item Bardzo duży rozmiar banerów informacyjnych, zasłaniających większą część
+        interfejsu
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.45\textwidth]{fitatu_con_1.png}
+          \caption{Fitatu - Ekran zawierający banery informacyjne}
+          \label{fig:fit4}
+        \end{figure}
+        \item Mały rozmiar paska podsumowującego spożyte danego dnia wartości odżywcze
+        \item Bliskie rozłożenie przycisków do dodawania posiłków, co przekłada się na
+        mniejszy komfort użytkowania        
+      \end{itemize}
+    }
+    \subsubsection{Yazio}
+    {
+      Yazio jest aplikacją najbardziej ograniczoną pod względem funkcjonalności dostępnych
+      w wersji darmowej, aby mieć dostęp do większości z nich należy posiadać płatną wersję
+      PRO.\\
+      Do zalet aplikacji należą:
+      \begin{itemize}
+        \item Duże pole podsumowujące dzień usytuowane na środku ekranu, w przejrzysty
+        sposób prezentujące informacje o postępie danego dnia.
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.4\textwidth]{yazio_1.jpg}
+          \caption{Yazio - Ekran główny}
+          \label{fig:yaz1}
+        \end{figure}
+        \item Dodawanie jedzenia i interesujących użytkownika aktywności znajduje się pod
+        jednym przyciskiem "+"
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.4\textwidth]{yazio_2.jpg}
+          \caption{Yazio - Ekran z klikniętym przyciskiem "+"}
+          \label{fig:yaz2}
+        \end{figure}
+      \end{itemize}
+      Największą wadą aplikacji jest fakt jak bardzo ograniczona jest ona w wersji darmowej.
+      W przypadku chęci sprawdzenia informacji o zjedzonych wartościach odżywczych, użytkownik
+      ma dostęp jedynie do ilości zjedzonych kalorii, węglowodanów, protein, oraz tłuszczu,
+      natomiast cała reszta, przykładowo witaminy nie są dostępne za darmo. 
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=.4\textwidth]{yazio_3.jpg}
+        \caption{Yazio - Ekran podsumowujący}
+        \label{fig:yaz3}
+      \end{figure}
+      Jeśli użytkownik nie chce inwestować pieniędzy, spośród konkurencji Yazio wypada 
+      najgorzej.
+    }
+    \subsubsection{Fatsecret}
+    {
+      Pod względem wizualnym, Fatsecret łączy najlepsze cechy konkurencji, prezentując
+      główny ekran podobny do Fitatu, jednak przedstawiony w sposób dużo bardziej 
+      minimalistyczny, stąd czytelniejszy, a także posiadający ciekawie przedstawione 
+      podsumowanie w postaci kwadratowej siatki, zapełnianej wraz z postępem zjedzonych posiłków.
+      Nie jest to jednak rozwiązanie tak czytelne, jak przypadku aplikacji Yazio.
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=.4\textwidth]{fatsecret_1.png}
+        \caption{Fatsecret - Ekran główny}
+        \label{fig:fat1}
+      \end{figure} 
+      Zaletami aplikacji są:
+      \begin{itemize}
+        \item Podobnie jak w przypadku Fitatu, rozpisanie najpopularniejszych posiłków
+        jednego pod drugim, jednak w dużo czytelniejszy sposób. 
+        \item Menu podsumowujące znajdujące się tuż pod posiłkami i przedstawia dane w
+        postaci aż dwóch różnych diagramów.
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.4\textwidth]{fatsecret_2.png}
+          \caption{Fatsecret - Ekran podsumowujący}
+          \label{fig:fat2}
+        \end{figure}
+        \item Sekcja "Raporty" pozwala zobaczyć podsumowanie na przestrzeni dłuższego okresu
+        czasu.
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.4\textwidth]{fatsecret_3.png}
+          \caption{Fatsecret - Ekran raportu}
+          \label{fig:fat3}
+        \end{figure}
+      \end{itemize}
+      Do wad Fatsecret można zaliczyć:
+      \begin{itemize}
+        \item Ilość wartości odżywczych, która jest mniej dokładna, niż w przypadku aplikacji 
+        Fitatu, jednak zdecydowanie większa niż w bezpłatnej wersji Yazio
+        \item Do odblokowania wszystkich funkcji aplikacja zmusza użytkowania do założenia
+        konta.
+      \end{itemize}
+    }
   }
   \subsection{Wymagania funkcjonalne}
   {
