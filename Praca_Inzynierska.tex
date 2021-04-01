@@ -509,11 +509,52 @@
   }
   \subsection{Wymagania funkcjonalne}
   {
+    Wymagania funkcjonalne jest to grupa założeń, opisujących co ma realizować system, 
+    jak ma się zachowywać w określonych sytuacjach, jakie usługi ma dostarczać i jaką ma
+    pełnić funkcję.
 
+    \begin{itemize}
+      \item Formularz rejestracyjny powinien pozwolić w prosty i szybki sposób założyć 
+      konto w aplikacji, co pozwala użytkownikowi przechowywać informacje w 
+      chmurowej bazie danych.
+      \item Panel logowania ma udostępniać formularz identyczny do panelu rejestracji,
+      jednak pozwolić ma na uzyskanie dostępu do konta na które rejestrowane są
+      zjedzone produkty.
+      \item Zjedzone produkty mogą zostać dodane do listy na 2 sposoby:
+        \begin{itemize}
+          \item Przy pomocy pola tekstowego, poprzez wpisanie odpowiedniej frazy.
+          \item Przy pomocy przytrzymania przycisku rozpoczynającego nasłuchiwanie telefonu.
+          w celu rozpoznawania mowy. Aplikacja nie obsługuje wielu fraz wypowiedzianych
+          jednocześnie, więc wyśle ona zapytanie do API żywnościowego załączając tylko 
+          pierwsze wypowiedziane słowo.
+        \end{itemize}
+        Po dodaniu jedzenia, zostaje ono zapisane w bazie danych, a następnie można je
+        wyświetlić po przejściu na ekran podsumowujący. Przy pomocy kalendarza,
+        użytkownik ma także możliwość zmienić obecnie wyświetlany dzień, w celu
+        sprawdzenia produktów spożytych w innej dacie.
+      \item Całkowita ilość spożytych kalorii jest na bieżąco sumowana i wyświetlana na
+      ekranie głównym. Wartość ta jest zmieniana w zależności od obecnie wyświetlanej daty. 
+    \end{itemize}
   }
   \subsection{Wymagania niefunkcjonalne}
   {
+    Wymagania niefunkcjonalne opisują ograniczenia, przy zachowaniu których system
+    powinien realizować swoje zadania. Dotyczą przykładowo niezawodności, bezpieczeństwa,
+    przenośności \cite{funk-niefunk}.
 
+    \begin{itemize}
+      \item Dane użytkownika mają być dostępne do odczytu tylko i wyłącznie dla niego, po 
+      zalogowaniu na konto.
+      \item W przypadku błędnie wpisanej frazy podczas wyszukiwania, aplikacja ma 
+      zwrócić okno z tekstową wiadomością, informującą użytkownika o problemie przy
+      znalezieniu produktu.
+      \item Aplikacja powinna dostosować szatę graficzną do różnych rozdzielczości ekranu.
+      \item Aplikacja nie powinna móc działać w tle i wykorzystywać zasoby.
+      \item Aplikacja ma być zaprojektowana pod system operacyjny "Android".
+      \item Aplikacja oczekuje dostępu do mikrofonu. 
+      \item Aplikacja ma mieć prosty interfejs i pozwolić użytkownikowi na szybką naukę
+      jej obsługi.
+    \end{itemize}
   }
 }
 
