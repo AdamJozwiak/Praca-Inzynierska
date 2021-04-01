@@ -272,7 +272,89 @@
   }
   \subsection{Bazy danych i ich rodzaje}
   {
+    Sam koncept baz danych jest starszy niż same komputery stacjonarne, przykładowo w
+    postaci szafek kartotekowych znanych tak dobrze z filmów ukazujących dokumenty CIA,
+    bądź FBI. Pierwsza baza danych została zbudowana w latach sześćdziesiątych XX wieku,
+    jednak ich historia w postaci znanej obecnie rozpoczyna się dopiero w 1970 roku,
+    gdy naukowiec Edgar F. Codd opublikował pracę zatytułowaną "A Relational Model of
+    Data for Large Shared Banks". Przedstawiała ona nowy sposób modelowania danych,
+    przy pomocy budowania połączonych ze sobą tabel, mogących przechować jednorazowo
+    jakąkolwiek formę danych. W tych czasach ilość pamięci była droga, a relacyjna baza
+    danych pozwalała na odpowiednie, efektywne nią zarządzanie. Przez następne dwie
+    dekady, technologia ta prężnie się rozwijała, dominując rynek światowy, a język
+    SQL (Structured Query Language) stał się standardem pozwalającym aplikacjom na
+    dostęp do wszelkich danych, w ilości i postaci w jakiej potrzebowały.
 
+    W roku 1977, Larry Ellison, Bob Miner i Ed Oates założyli firmę o nazwie Software
+    Development Laboratories (SDL), której celem było stworzenie bazy danych kompatybilnej
+    z relacyjnym systemem. W przeciągu następnych 5 lat spółka zmieniła swoją nazwę
+    dwukrotnie, w 1979 na Reletional Software Inc (RSI), a ostatecznie na w 1982 na
+    Oracle Systems Corporation, obecnie jednego z największych i najbardziej dochodowych
+    dystrybutorów baz danych na świecie. Swoje oprogramowanie napisali w języku C, co
+    dawało bardzo dobre rezultaty pod względem optymalizacyjnym i pozwalało na 
+    przeniesienie go na dowolną platformę wspierającą C. Przez wiele lat, Oracle
+    bezkonkurencyjnie dominowało rynek, jednak pod koniec lat osiemdziesiątych, pojawiła
+    się nowy firma, chcąca przejąć nad nim kontrolę, a był to Microsoft, który stworzył
+    bazę danych na system OS/2, zwaną SQL Server 1.0, a następnie zaprojektował jej port
+    na Windows NT, który powoli stawał się najpopularniejszym systemem operacyjnym
+    używanym w komputerach osobistych. Sprawiło to, że SQL Server zaczął przeistaczać
+    się w najnowszy standard w małej i średniej wielkości firmach, a nowo opracowane
+    środowiska programistyczne Visual Basic, a następnie .NET pozwalały na łatwą
+    integrację baz danych do projektów. We wczesnych latach dziewięćdziesiątych, pojawiło
+    się najnowsze rozwiązanie, które wpłynęło na rynek w jeszcze większym stopniu niż
+    którykolwiek z jego poprzedników, przynajmniej w kontekście rynku online. Aby zwalczać
+    dominację Microsoftu i jego ścisłą kontrolę nad kodem używanym w większości systemów
+    komputerów stacjonarnych, został uformowany ruch open-source - otwartego, a co za tym
+    idzie darmowego kodu źródłowego. W roku 1995 powstała pierwsza wersja MySQL, opracowana
+    przez firmę fundującą cały projekt open-source - MySQL AB. Oprogramowanie to stało
+    się pierwszą znaczącą bazą danych używaną w przypadku stron internetowych, do dziś
+    wykorzystywaną przez firmy takie jak Google, Facebook, czy Twitter. Otwartość kodu
+    pozwoliła twórcom stron na niezależność wobec spółek takich jak Oracle'a, czy Microsoft'u. 
+
+    Relacyjne bazy danych zostały zaprojektowane w czasach poprzedzających popularność
+    internetu i były przeznaczone do operowania na jednej maszynie. W przypadku, gdy
+    przytłaczająca ilość danych wykraczała poza możliwości jednego urządzenia, jedynym
+    sposobem było połączenie wielu serwerów w klastry, a to sprawiało że przeniesienie
+    tradycyjnej bazy danych opartej na SQL i przeznaczonej do działania na pojedynczym
+    serwerze, było zadaniem wyjątkowo skomplikowanym i często dającym złe rezultaty.
+    Aby temu zaradzić, zaczęto przykładać uwagę do technologii istniejącej już w latach
+    sześćdziesiątych, a która w 1998 roku została przemianowana na NoSQL (Not only SQL).
+    Nie było to rozwiązanie perfekcyjne, gdyż nie posiadało wielu zalet relacyjnych baz
+    danych, jednak było szybsze i znacznie lepiej skalowalne, cechy które w okresie po
+    internetowej rewolucji WEB 2.0, gdy w bardzo szybkim tempie pojawiało się zapotrzebowanie
+    na kolejne jednostki pamięci, były na wagę złota. Obecnie, coraz to większą popularność
+    zaczynają pozyskiwać chmurowe (cloud database), oraz autonomiczne bazy danych
+    (self-driving database).\\
+    {\large \bfseries Najpopularniejsze rodzaje baz danych} \cite{oracle-db}
+    \begin{itemize}
+      \item Relacyjne bazy danych (Relational databases) - Rekordy w bazie zorganizowane
+      są w postaci tabel posiadających wiersze i kolumny.
+      \item Obiektowe bazy danych (Object-oriented databases) - Dane są przechowywane w
+      postaci obiektów, posiadających w sobie określone pola.
+      \item Rozproszone bazy danych (Distributed databases) - Dane przechowywane mogą być
+      w wielu plikach, na wielu urządzeniach, rozproszone w różnych sieciach.
+      \item Nierelacyjne bazy danych (NoSQL databases) - Pozwala na przechowywanie i
+      manipulowanie danymi, które nie są ustrukturyzowane, w przeciwieństwie do relacyjnych
+      baz danych, które definiują jak skomponowane mają być dane dostarczone do bazy. Ich
+      popularność rosła wprost proporcjonalnie do ilości aplikacji web-owych i ich
+      złożoności.
+      \item Grafowe bazy danych (Graph databases) - Bazy, gdzie związki pomiędzy
+      danymi są równie ważne, co same dane.
+      \item Bazy danych OLTP (Online Transaction Processing) - Szybkie, analityczne
+      bazy danych, projektowane z myślą o dużej ilości transakcji wykonywanych pomiędzy
+      wieloma użytkownikami. 
+      \item Hurtownia danych (Data warehouses) - Baza zaprojektowana pod kątem
+      szybkiej wymiany danych i ich analizy
+      \item Wielomodelowa baza danych (Multi-model database) - Ich celem jest połączenie
+      wielu typów modeli baz danych w jeden, zintegrowany back-end. Mogą dzięki temu
+      pomieścić wiele typów danych.
+      \item Autonomiczne bazy danych (Self-driving databases) - Najnowsze i najbardziej
+      rewolucyjne bazy, oparte na chmurowych bazach danych, wykorzystujące uczenie
+      maszynowe do zautomatyzowania nimi zarządzania.
+    \end{itemize}
+
+    Zdobywającymi coraz większą popularność systemami bazodanowymi są chmurowe bazy danych,
+    które postaram opisać się w kolejnym rozdziale.
   }
   \subsection{Chmurowe bazy danych}
   {
