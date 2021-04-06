@@ -11,6 +11,7 @@
 \usepackage{float}
 \usepackage[backend=biber,style=numeric]{biblatex}
 \usepackage{subcaption}
+\usepackage{siunitx}
 
 \addbibresource{bibliografia.bib}
 \graphicspath{{./zdjecia/}}
@@ -188,7 +189,38 @@
   }
   \subsection{Programowanie aplikacji na urządzenia mobilne}
   {
-    
+    Proces tworzenia aplikacji na systemy mobilne jest w dużym stopniu podobny do
+    ich desktopowych odpowiedników. Projektując taką aplikację, należy początkowo wziąć
+    pod uwagę rodzaj systemu operacyjnego, na którym ma ona działać, gdyż różne systemy
+    mają swoje własne wymagania. To przekłada się często na fakt, że jedna aplikacja musi
+    zostać w większości przepisana, aby spełniać warunki narzucane przez różne OS.
+    Moc obliczeniowa jest kolejnym ważnym czynnikiem branym pod uwagę przy tworzeniu
+    takiej aplikacji, gdyż o ile sprzęt dostępny w komputerach pozwala na wydajne
+    działanie skomplikowanych systemów, tak smartphone'owy hardware, pomimo ogromnego
+    postępu, ze względu na swoje rozmiary nadal jest ograniczony, stąd prostota i
+    wydajność aplikacji są kluczowe dla bezproblemowego jej użytkowania.\\
+    Obecnie rynek aplikacji mobilnych jest relatywnie młody, dlatego w przyszłości
+    można oczekiwać, że powstanie język programowania / środowisko programistyczne
+    unifikujące tworzenie aplikacji zarówno desktopowych, jak i mobilnych, jednak do
+    czasu powstania takiego systemu, programiści muszą samodzielnie dostosowywać wygląd
+    swoich projektów pod smartphony. Nie tylko rozmiar ekranu ma znaczenie, ale
+    także współczynnik proporcji (z ang. Aspect Ratio), lub fakt, że urządzenia mobilne
+    mają wbudowany akcelerometr pozwalający na obrócenie ekranu o \ang{90}. Wiele aplikacji
+    pisanych jest tak, aby wyświetlane były w odpowiednim dla wizji programisty współczynniku
+    proporcji, jednak większość tworzona jest zgodnie ze standardem przemysłowym,
+    który dla urządzeń desktopowych wynosi 16:9, a dla mobilnych 9:16. Fakt ten, oraz
+    rozmiary ekranu nie pozwalają na stworzenie jednolitego interfejsu dla obu typu
+    urządzeń, stąd jedna aplikacja może wyglądać zupełnie inaczej w zależności od
+    używanej platformy.\\
+    Ostatnim ważnym czynnikiem wyróżniającym proces tworzenia aplikacji mobilnej, jest
+    sposób jej testowania. Dla komputerów stacjonarnych, programiści zazwyczaj mają
+    dostęp do platformy na którą przeznaczyć chcą swój produkt, przykładowo przy
+    pisaniu aplikacji web'owej, działanie jej testuje się w przeglądarce. W przypadku
+    aplikacji mobilnych, używa się specjalnych emulatorów, na których instaluje się
+    swoje oprogramowanie, a następnie na bieżąco sprawdza jego działanie. Z jednej
+    strony, pozwala to na szybkie, bezpieczne i wygodne testowanie, jednak emulatory te
+    nie są w pełni poprawną symulacją prawdziwego systemu, więc często nie jest to
+    możliwe, aby sprawdzić wszystkie możliwe, zaawansowane interakcje użytkownika.
   }
   \subsection{Speech to text}
   {
@@ -328,7 +360,8 @@
     {\large \bfseries Najpopularniejsze rodzaje baz danych} \cite{oracle-db}
     \begin{itemize}
       \item Relacyjne bazy danych (Relational databases) - Rekordy w bazie zorganizowane
-      są w postaci tabel posiadających wiersze i kolumny.
+      są w postaci tabel posiadających wiersze i kolumny. Różne tabele mogą posiadać
+      pomiędzy sobą związki pozwalające im na wspólną kooperację. 
       \item Obiektowe bazy danych (Object-oriented databases) - Dane są przechowywane w
       postaci obiektów, posiadających w sobie określone pola.
       \item Rozproszone bazy danych (Distributed databases) - Dane przechowywane mogą być
@@ -358,7 +391,35 @@
   }
   \subsection{Chmurowe bazy danych}
   {
+    Ideą chmurowych baz danych jest zmniejszenie zapotrzebowania firm na zakup własnych
+    "fizycznych" serwerów, a zamiast tego zaoferowanie im płatnego dostępu do maszyn
+    wirtualnych, na których dana firma mogłaby postawić swoją bazę danych. Czym jednak
+    są maszyny wirtualne? 
+    
+    W skrócie, jest to wirtualne środowisko, funkcjonujące jako
+    komputer, którego komponenty takie jak procesor, pamięć i interfejs sieciowy
+    znajdują się na fizycznym systemie. Możliwe jest jednoczesne istnienie wielu maszyn
+    wirtualnych na jednym systemie, zwanym inaczej "hostem". Dzięki oprogramowaniu
+    "hypervisor", możliwe jest odseparowanie fizycznej maszyny, od wirtualnej,
+    co stwarza bezpieczne środowisko do pracy i w przypadku, gdyby przykładowo na
+    maszynie wirtualnej znalazł się wirus, nie wpłynie on na pracę hosta, jego
+    działanie będzie ograniczone jedynie w zakresie maszyny wirtualnej.
 
+    Aby korzystać z możliwości oferowanych przez "chmurę", firma może zdecydować się
+    na stworzenie własnej, prywatnej infrastruktury, lub skorzystanie z udostępnianych
+    publicznie serwisów chmurowych. Do najpopularniejszych obecnie należą:
+    \begin{itemize}
+      \item AWS - Amazon Wev Services
+      \item Google Cloud Platform
+      \item Microsoft Azure
+      \item IBM Cloud
+      \item Oracle Cloud
+    \end{itemize}
+    Dużą zaletą serwisów chmurowych jest możliwość łatwego dostosowania ich pod własne
+    potrzeby, przykładowo w przypadku zapotrzebowania na większą ilość pamięci, lub
+    większą moc obliczeniową wystarczy zazwyczaj zapłacić więcej za abonament, a nie
+    trzeba się przejmować rozbudowywaniem własnej infrastruktury, co zajęłoby znacznie
+    więcej czasu.
   }
   \subsection{API}
   {
