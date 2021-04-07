@@ -703,13 +703,55 @@
 
 \section{Technologie i narzędzia wykorzystane w projekcie}
 {
-  \subsection{Flutter}
-  {
 
-  }
   \subsection{Dart}
   {
-
+    Dart jest językiem programowania opracowanym przez firmę Google i pierwszy raz
+    ukazanym na konferencji Aarhus w 2010 roku. Jego głównym celem było wprowadzenie
+    konkurencji dla JavaScriptu, dominującego języka używanego w przeglądarkach
+    internetowych. Cechuje go fakt, że jest językiem programowania obiektowego, opartym
+    na klasach ze składnią podobną do języków z rodziny "C", a jego kod może zostać
+    skompilowany na zarówno kod maszynowy, przy użyciu maszyny wirtualnej Dart VM, jak
+    i przy pomocy kompilatora "dart2js", na kod JavaScript, co przekłada się na jego
+    kompatybilność z wieloma obecnymi przeglądarkami internetowymi. Dart VM umożliwia
+    łatwe uruchamianie kodu na różnych platformach, bez potrzeby pisania aplikacji pod
+    konkretny system, a także oferuje dwa różne tryby kompilacji \cite{dart}:
+    \begin{itemize}
+      \item Just-in-time compiler (JIT) - pozwala na inkrementalną kompilację,
+      umożliwiającą szybkie sprawdzenie wyniku wprowadzonych w kodzie zmian, z dostępem do
+      wielu narzędzi służących debuggowaniu, bez potrzeby oczekiwania na całkowitą
+      kompilację całego programu.
+      \item Ahead-of-time compilation (AOT) - w momencie gdy aplikacja jest gotowa do
+      wydania, Dart AOT umożliwia kompilację na kod maszynowy dla architektury ARM
+      (używanej głównie w procesorach, lub urządzeniach mobilnych), bądź x86\_64
+      (charakterystycznej dla komputerów stacjonarnych).
+    \end{itemize}
+    Dart wspiera pojedyncze dziedziczenie, gdzie klasa podrzędna może dziedziczyć tylko
+    po jednej klasie nadrzędnej, interfejsy, domieszki, klasy abstrakcyjne, a także typy
+    opcjonalne. O ile język ten wciąż nie zastąpił JavaScript na rynku aplikacji web'owych,
+    tak zyskuje coraz większą popularność dzięki środowisku programistycznemu opracowanemu
+    przez Google, o nazwie "Flutter".
+  }
+  \subsection{Flutter}
+  {
+    Flutter jest środowiskiem programistycznym względnie młodym, gdyż został pierwszy
+    raz zaprezentowany w roku 2015 i miał początkowo służyć jako nowoczesna platforma
+    do tworzenia aplikacji na system Android, a jego wersja alfa (0.0.6) została wydana
+    w 2017 roku. Opracowany na bazie języka programistycznego Dart, Flutter skupia się
+    na udostępnieniu narzędzi do szybkiego i łatwego projektowania interfejsu użytkownika,
+    będąc przy tym bardzo wydajnym. Obecnie, umożliwia on używanie tego samego kodu na
+    wielu platformach, takich jak Android, czy iOS, jako że w przeciwieństwie do
+    konkurencyjnych rozwiązań, nie wykorzystuje on narzędzi oferowanych przez daną
+    platformę \cite{flutter}. Zamiast tego, Flutter opiera się w pełni na własnym
+    systemie "widget'ów", co pozwala wyróżnić go pod względem szybkości i wydajności,
+    i tak jak w przypadku systemu Windows zwykło się mówić, że wszystko w Windows jest
+    oknem, tak we Flutterze wszystko jest widgetem. Tworzą one wspólnie drzewo hierarchiczne,
+    gdzie każdy widget dziedziczy po innym, nadrzędnym komponencie, aż do widgetu będącego
+    kontenerem przechowującym całą aplikację, zwanego zazwyczaj MaterialApp, lub
+    CupertinoApp.\\
+    Sam framework Flutter'a jest relatywnie mały i ograniczony, a większość bardziej
+    zaawansowanych komponentów jest udostępniana w formie pakietów i pluginów, które
+    programiści w zależności od potrzeb mogą dowolnie załączać do swojego projektu.
   }
   \subsection{Cloud Firestore}
   {
