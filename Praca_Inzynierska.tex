@@ -729,15 +729,15 @@
     Dart wspiera pojedyncze dziedziczenie, gdzie klasa podrzędna może dziedziczyć tylko
     po jednej klasie nadrzędnej, interfejsy, domieszki, klasy abstrakcyjne, a także typy
     opcjonalne. O ile język ten wciąż nie zastąpił JavaScript na rynku aplikacji web'owych,
-    tak zyskuje coraz większą popularność dzięki środowisku programistycznemu opracowanemu
+    tak zyskuje coraz większą popularność dzięki platformie programistycznej opracowanej
     przez Google, o nazwie "Flutter".
   }
   \subsection{Flutter}
   {
-    Flutter jest środowiskiem programistycznym względnie młodym, gdyż został pierwszy
-    raz zaprezentowany w roku 2015 i miał początkowo służyć jako nowoczesna platforma
-    do tworzenia aplikacji na system Android, a jego wersja alfa (0.0.6) została wydana
-    w 2017 roku. Opracowany na bazie języka programistycznego Dart, Flutter skupia się
+    Flutter jest względnie młodym frameworkiem, gdyż został pierwszy raz zaprezentowany
+    w roku 2015 i miał początkowo służyć jako nowoczesna platforma do tworzenia aplikacji
+    na system Android, a jego wersja alfa (0.0.6) została wydana w 2017 roku.
+    Opracowany na bazie języka programistycznego Dart, Flutter skupia się
     na udostępnieniu narzędzi do szybkiego i łatwego projektowania interfejsu użytkownika,
     będąc przy tym bardzo wydajnym. Obecnie, umożliwia on używanie tego samego kodu na
     wielu platformach, takich jak Android, czy iOS, jako że w przeciwieństwie do
@@ -755,15 +755,67 @@
   }
   \subsection{Cloud Firestore}
   {
-
+    Cloud Firestore jest jedną z usług dostępnych w Google Firebase - platformy której
+    głównym celem jest wspomaganie twórców aplikacji mobilnych poprzez oferowanie
+    zestawu gotowych narzędzi. Firestore jest nierelacyjną, chmurową bazą danych, która
+    jest w stanie w czasie rzeczywistym informować aplikację o zmianach w swojej bazie,
+    co pozwala na ciągłe wyświetlanie najnowszych danych, bez potrzeby specjalnego,
+    interwałowego ich sprawdzania. Posiada ona wsparcie dla trybu offline i w przypadku
+    gdy urządzenie utraci dostęp do internetu, Cloud Firestore buforuje dane, z których
+    aktywnie korzysta aplikacja, a następnie po odzyskaniu połączenia synchronizuje
+    wszelkie lokalne zmiany z danymi znajdującymi się w chmurze.\\
+    Dane w Firestore przechowywane są zgodnie z modelem danych NoSQL, w dokumentach
+    zawierających pola mapowane na wartości. Te dokumenty przechowywane są w kolekcjach - \\
+    kontenerach na dokumenty, których można używać do organizowania danych i tworzenia
+    zapytań. Dokumenty są w stanie obsłużyć wiele różnych typów danych, od prostych
+    łańcuchów i liczb po złożone, zagnieżdżone obiekty. Ponadto, dane mogą być odczytywane
+    na poziomie dokumentu, bez konieczności pobierania całej kolekcji lub jakichkolwiek
+    zagnieżdżonych podkolekcji.
   }
   \subsection{Android Studio}
   {
-
+    Android Studio jest oficjalnym narzędziem do tworzenia aplikacji na system operacyjny
+    "Android", opartym na środowiskach programistycznych firmy IntelliJ i oprócz
+    standardowego zestawu narzędzi i edytora kodu, oferuje szereg ułatwień z myślą
+    o aplikacjach mobilnych. Jako fundacji do budowania rozwiązania, Android Studio używa
+    "Gradle", uznanego oprogramowania open-source służącego do automatyzacji całego procesu.
+    Do łatwego testowania aplikacji, Android Studio posiada wbudowany emulator, pozwalający
+    na ściągnięcie dowolnej, pożądanej wersji systemu operacyjnego, na telefony o
+    różnych rozmiarach ekranu. Środowisko oferuje również wsparcie dla systemu kontroli
+    wersji "Git", stąd proces zapisania wszelkich zmian i wysłania ich na repozytorium
+    może zostać w pełni wykonany przy pomocy Android Studio.
   }
   \subsection{Android Emulator}
   {
-
+    Do aktywnego sprawdzania aplikacji mobilnych na desktopach, używa się
+    specjalnych emulatorów, których zadaniem jest stworzenie wirtualnego środowiska
+    przypominającego w działaniu realne urządzenie przenośne, poprzez naśladowanie
+    sprzętu znajdującego się w urządzeniach mobilnych. Odzwierciedlenie realnego
+    procesora byłoby zadaniem wyjątkowo wymagającym pod względem zasobów,
+    przekładając się na szybkość z jaką działałby dany emulator, jednak dzięki wspomnianemu
+    wcześniej w przypadku maszyn wirtualnych oprogramowaniu "Hypervisor", gdy architektury
+    procesorów urządzenia emulowanego jak i komputera stacjonarnego są ze sobą zgodne,
+    możliwe jest użycie procesora hosta, jako procesora w emulowanym urządzeniu.\\
+    Największą zaletą używania emulatorów jest oczywiście prędkość, z jaką można testować
+    swoją aplikację, bez zbędnej potrzeby budowania jej, a następnie eksportowania
+    na posiadane urządzenie mobilne, instalowania, a w końcu sprawdzania. Inną mniej
+    oczywistą, jest testowanie aplikacji pod kątem interakcji z fizycznymi
+    sensorami, jak przykładowo akcelerometr, gdyż dużo łatwiej jest dostosować ustawienia
+    w wirtualnym środowisku, aby następnie mogły one poprawnie działać już na realnym
+    urządzeniu.\\
+    Wraz z zaletami pojawiają się także ograniczenia. Najpopularniejszą architekturą
+    dla urządzeń mobilnych jest ARM v7a, jednak większość desktopów używa x86\_64, stąd
+    bez procesora z architekturą ARM w większości przypadków nie ma nawet okazji skorzystać
+    z przyspieszonej emulacji, wspomnianej wcześniej. Stworzenie jednego wirtualnego
+    urządzenia może zająć nawet do 10GB miejsca na dysku, stąd posiadanie wielu różnych
+    urządzeń do testowania w znacznym stopniu ogranicza dostępną pamięć systemową.
+    Wydajność z jaką operuje emulator jest ściśle związana z urządzeniem na którym jest
+    on uruchomiony, stąd może on nie tylko działać wolniej niż zazwyczaj, ale także
+    wyrzucać błędy, niekoniecznie związane z działaniem samej aplikacji, lub emulatora.\\
+    Emulatory nigdy nie będą w stanie w pełni oddać działania prawdziwego urządzenia i
+    nie będą w stanie zaoferować wszystkich dostępnych w urządzeniach mobilnych możliwości,
+    także testowanie na fizycznym urządzeniu zawsze będzie procederem wymaganym, do
+    prawidłowego projektowania aplikacji mobilnych.
   }
   \subsection{VIM}
   {
