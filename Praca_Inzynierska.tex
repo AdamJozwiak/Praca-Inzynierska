@@ -12,6 +12,7 @@
 \usepackage[backend=biber,style=numeric]{biblatex}
 \usepackage{subcaption}
 \usepackage{siunitx}
+\usepackage{tabularx}
 
 \addbibresource{bibliografia.bib}
 \graphicspath{{./zdjecia/}}
@@ -37,23 +38,22 @@
 {
   \subsection{Problematyka}
   {
-    W epoce internetu XXI wieku, gdy wiedza jest narzędziem powszechnie dostępnym, a 
+    W epoce internetu XXI wieku, gdy dostęp do wiedzy jest powszechnie dostępny, a 
     każdy ma możliwość zdobycia informacji na interesujący go w mniejszym,
     lub większym stopniu temat, gdy media oraz tak zwani "influencerzy" promują zdrowy
-    styl życia, popularnym trendem ostatnich lat staje się dbanie o własne ciało. 
+    styl życia, popularnym trendem ostatnich lat stało się dbanie o własne ciało. 
     Trend popędzany również łatwym dostępem do najróżniejszych portali
     społecznościowych i chęcią pokazania Swoich zdjęć na forum publicznym sprawił, 
-    że co roku znacznie zwiększa się ogólna ilość ludzi chętnych do uczęszczania na
+    że co roku znacznie zwiększa się ogólna liczba ludzi chętnych do uczęszczania na
     siłownię i odbywania regularnych treningów.
 
     Równie ważną częścią dbania o Swoje ciało, oprócz treningów siłowych, jest 
     zastosowanie odpowiedniej diety. Nie jest to zadanie trywialne, ponieważ jest 
-    ono w pełni zależne od zapotrzebowania osoby zainteresowanej, stąd istnienie
-    zawodów takich jak "dietetyk". W związku z tym wiele osób zainteresowanych
-    rozpoczęciem procesu odchudzania sięga po jedną z najprostszych i skutecznych
-    metod, a mianowicie liczenie zjedzonych kalorii. Rekomendowana ilość
-    dziennego ich spożycia jest zależna od bardzo dużego wachlarza czynników, 
-    takich jak, przykładowo: płeć, wiek, wzrost, tryb życia, oraz wiele innych, 
+    ono w pełni zależne od zapotrzebowania osoby zainteresowanej. W związku z tym
+    wiele osób chętnych do rozpoczęcia procesu odchudzania sięga po jedną z
+    najprostszych i skutecznych metod, a mianowicie liczenie zjedzonych kalorii.
+    Rekomendowana ilość dziennego ich spożycia jest zależna od szerokiego wachlarza
+    czynników, takich jak, przykładowo: płeć, wiek, wzrost, tryb życia, 
     jednak w pracy naukowej zatytułowanej "How many calories should I eat a day?"
     \cite{cal}, autor podsumował, iż rekomendowaną dzienną ilością spożytych kalorii 
     dla przeciętnego mieszkańca Stanów Zjednoczonych, jest:
@@ -70,9 +70,8 @@
     używanie ich jest często zadaniem nieprzyjemnym i czasochłonnym, polegającym
     na wykonaniu całych serii kliknięć przeprowadzających użytkownika z jednego menu
     do drugiego, w celu wyszukania i dodania składników do listy spożytych artykułów,
-    co długofalowo przekłada się na porzucenie chęci prowadzenia notatek dotyczących
-    spożytych kalorii. 
-    Brakuje na rynku rozwiązania, które udostępniłoby łatwy i szybki
+    co długofalowo może przełożyć się na porzucenie chęci prowadzenia szczegółowych
+    notatek. Brakuje na rynku rozwiązania, które udostępniłoby łatwy i szybki
     w użyciu interfejs, oraz w bardzo krótkim okresie czasowym pozwoliłoby wyszukać 
     i dodać interesujące użytkownika produkty. Dodatkowym atutem byłoby wzbogacenie
     takiej aplikacji o moduł wykorzystujący mowę ludzką, do jeszcze większego 
@@ -90,8 +89,6 @@
     Praca obejmuje implementację logiki przy użyciu języka programowania \emph{Dart},
     natomiast wygląd aplikacji, oraz interakcje pomiędzy poszczególnymi modułami
     zarządzane są przy pomocy frameworku \emph{Flutter}.
-
-    \color{red} ???????????????
   }
   %\subsection{Keywords}
   %{
@@ -520,55 +517,63 @@
         \caption{Fitatu - Ekran główny}
         \label{fig:fit1}
       \end{figure} 
-      Do największych zalet aplikacji należą:
-      \begin{itemize}
-        \item Rozpisanie najpopularniejszych posiłków jednego pod drugim, co ułatwia
-        rozplanowanie kolejnych dań.
-        \item Menu aplikacji jest modyfikowalne, pozwala na określenie w których godzinach
-        jest spożywany dany posiłek, oraz na łatwe zmodyfikowanie celów użytkownika.
-        \begin{figure}[H]
+      \begin{center}
+        \begin{tabularx}{ \textwidth } {
+          | >{\centering\arraybackslash}X
+          | >{\centering\arraybackslash}X
+          | }
+         \hline
+         \bfseries Zalety & \bfseries Wady \\
+         \hline
+         Rozpisanie najpopularniejszych posiłków jednego pod drugim, co ułatwia
+         rozplanowanie kolejnych dań & 
+         Bardzo duży rozmiar banerów informacyjnych, zasłaniających większą część
+         interfejsu \\
+         \hline
+         Menu aplikacji jest modyfikowalne, pozwala na określenie w których godzinach
+         jest spożywany dany posiłek, oraz na łatwe zmodyfikowanie celów użytkownika. & 
+         Mały rozmiar paska podsumowującego spożyte danego dnia wartości odżywcze \\
+         \hline
+         Aplikacja posiada bardzo dokładną listę najróżniejszych składników odżywczych,
+         rozpisanych w bardzo przejrzysty sposób, co pozwala na niezwykle szczegółowe
+         rozplanowanie diety & 
+         Bliskie rozłożenie przycisków do dodawania posiłków, co przekłada się na
+         mniejszy komfort użytkowania \\
+         \hline
+        \end{tabularx}
+      \end{center}
+      \begin{figure}[H]
+        \centering
+        \begin{subfigure}{.5\textwidth}
           \centering
-          \begin{subfigure}{.5\textwidth}
-            \centering
-            \includegraphics[width=.8\linewidth]{fitatu_pro_2.jpg}
-            \caption{Ekran modyfikacji rozkładu dnia}
-            \label{fig:subfit1}
-          \end{subfigure}%
-          \begin{subfigure}{.5\textwidth}
-            \centering
-            \includegraphics[width=.8\linewidth]{fitatu_pro_3.jpg}
-            \caption{Ekran modyfikacji celów użytkownika}
-            \label{fig:subfit2}
-          \end{subfigure}
-          \caption{Fitatu - Ekrany modyfikacji}
-          \label{fig:fit2}
-        \end{figure} 
-        \item Aplikacja posiada bardzo dokładną listę najróżniejszych składników odżywczych,
-        rozpisanych w bardzo przejrzysty sposób, co pozwala na niezwykle szczegółowe
-        rozplanowanie diety
-        \begin{figure}[H]
+          \includegraphics[width=.6\linewidth]{fitatu_pro_2.jpg}
+          \caption{Ekran modyfikacji rozkładu dnia}
+          \label{fig:subfit1}
+        \end{subfigure}%
+        \begin{subfigure}{.5\textwidth}
           \centering
-          \includegraphics[width=.4\textwidth]{fitatu_pro_4.jpg}
-          \caption{Fitatu - Ekran szczegółowego podsumowania}
-          \label{fig:fit3}
-        \end{figure} 
-        \item W aplikacji jest dostępny za darmo czarny motyw, co zwiększa komfort
-        użytkowania i nie męczy wzrok, zwłaszcza w porach nocnych
-      \end{itemize}
-      Do największych wad można zaliczyć:
-      \begin{itemize}
-        \item Bardzo duży rozmiar banerów informacyjnych, zasłaniających większą część
-        interfejsu
-        \begin{figure}[H]
-          \centering
-          \includegraphics[width=.45\textwidth]{fitatu_con_1.png}
-          \caption{Fitatu - Ekran zawierający banery informacyjne}
-          \label{fig:fit4}
-        \end{figure}
-        \item Mały rozmiar paska podsumowującego spożyte danego dnia wartości odżywcze
-        \item Bliskie rozłożenie przycisków do dodawania posiłków, co przekłada się na
-        mniejszy komfort użytkowania        
-      \end{itemize}
+          \includegraphics[width=.6\linewidth]{fitatu_pro_3.jpg}
+          \caption{Ekran modyfikacji celów użytkownika}
+          \label{fig:subfit2}
+        \end{subfigure}
+        \caption{Fitatu - Ekrany modyfikacji}
+        \label{fig:fit2}
+      \end{figure} 
+        
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=.3\textwidth]{fitatu_pro_4.jpg}
+        \caption{Fitatu - Ekran szczegółowego podsumowania}
+        \label{fig:fit3}
+      \end{figure} 
+      
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=.3\textwidth]{fitatu_con_1.png}
+        \caption{Fitatu - Ekran zawierający banery informacyjne}
+        \label{fig:fit4}
+      \end{figure}
+        
     }
     \subsubsection{Yazio}
     {
@@ -581,7 +586,7 @@
         sposób prezentujące informacje o postępie danego dnia.
         \begin{figure}[H]
           \centering
-          \includegraphics[width=.4\textwidth]{yazio_1.jpg}
+          \includegraphics[width=.3\textwidth]{yazio_1.jpg}
           \caption{Yazio - Ekran główny}
           \label{fig:yaz1}
         \end{figure}
@@ -589,7 +594,7 @@
         jednym przyciskiem "+"
         \begin{figure}[H]
           \centering
-          \includegraphics[width=.4\textwidth]{yazio_2.jpg}
+          \includegraphics[width=.3\textwidth]{yazio_2.jpg}
           \caption{Yazio - Ekran z klikniętym przyciskiem "+"}
           \label{fig:yaz2}
         \end{figure}
@@ -600,7 +605,7 @@
       natomiast cała reszta, przykładowo witaminy nie są dostępne za darmo. 
       \begin{figure}[H]
         \centering
-        \includegraphics[width=.4\textwidth]{yazio_3.jpg}
+        \includegraphics[width=.3\textwidth]{yazio_3.jpg}
         \caption{Yazio - Ekran podsumowujący}
         \label{fig:yaz3}
       \end{figure}
@@ -616,38 +621,49 @@
       Nie jest to jednak rozwiązanie tak czytelne, jak przypadku aplikacji Yazio.
       \begin{figure}[H]
         \centering
-        \includegraphics[width=.4\textwidth]{fatsecret_1.png}
+        \includegraphics[width=.3\textwidth]{fatsecret_1.png}
         \caption{Fatsecret - Ekran główny}
         \label{fig:fat1}
       \end{figure} 
-      Zaletami aplikacji są:
-      \begin{itemize}
-        \item Podobnie jak w przypadku Fitatu, rozpisanie najpopularniejszych posiłków
-        jednego pod drugim, jednak w dużo czytelniejszy sposób. 
-        \item Menu podsumowujące znajdujące się tuż pod posiłkami i przedstawia dane w
-        postaci aż dwóch różnych diagramów.
-        \begin{figure}[H]
-          \centering
-          \includegraphics[width=.4\textwidth]{fatsecret_2.png}
-          \caption{Fatsecret - Ekran podsumowujący}
-          \label{fig:fat2}
-        \end{figure}
-        \item Sekcja "Raporty" pozwala zobaczyć podsumowanie na przestrzeni dłuższego okresu
-        czasu.
-        \begin{figure}[H]
-          \centering
-          \includegraphics[width=.4\textwidth]{fatsecret_3.png}
-          \caption{Fatsecret - Ekran raportu}
-          \label{fig:fat3}
-        \end{figure}
-      \end{itemize}
-      Do wad Fatsecret można zaliczyć:
-      \begin{itemize}
-        \item Ilość wartości odżywczych, która jest mniej dokładna, niż w przypadku aplikacji 
-        Fitatu, jednak zdecydowanie większa niż w bezpłatnej wersji Yazio
-        \item Do odblokowania wszystkich funkcji aplikacja zmusza użytkowania do założenia
-        konta.
-      \end{itemize}
+      
+      \begin{center}
+        \begin{tabularx}{ \textwidth } {
+          | >{\centering\arraybackslash}X
+          | >{\centering\arraybackslash}X
+          | }
+         \hline
+         \bfseries Zalety & \bfseries Wady \\
+         \hline
+         Podobnie jak w przypadku Fitatu, rozpisanie najpopularniejszych posiłków
+         jednego pod drugim, jednak w dużo czytelniejszy sposób & 
+         Ilość wartości odżywczych, która jest mniej dokładna, niż w przypadku aplikacji 
+         Fitatu, jednak zdecydowanie większa niż w bezpłatnej wersji Yazio \\
+         \hline
+         Menu podsumowujące znajdujące się tuż pod posiłkami i przedstawia dane w
+         postaci aż dwóch różnych diagramów. & 
+         Do odblokowania wszystkich funkcji aplikacja zmusza użytkowania do założenia
+         konta. \\
+         \hline
+         Sekcja "Raporty" pozwala zobaczyć podsumowanie na przestrzeni dłuższego okresu
+         czasu. &
+          \\
+         \hline
+        \end{tabularx}
+      \end{center}
+      
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=.3\textwidth]{fatsecret_2.png}
+        \caption{Fatsecret - Ekran podsumowujący}
+        \label{fig:fat2}
+      \end{figure}
+      
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=.3\textwidth]{fatsecret_3.png}
+        \caption{Fatsecret - Ekran raportu}
+        \label{fig:fat3}
+      \end{figure}
     }
   }
   \subsection{Wymagania funkcjonalne}
