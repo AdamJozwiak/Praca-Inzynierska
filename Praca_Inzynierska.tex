@@ -829,6 +829,7 @@
 
 \section{Proces powstawania aplikacji}
 {
+  \subsection{Aplikacja od strony logiki}{
   Proces tworzenia aplikacji rozpoczął się od podjęcia decyzji w jakiej technologii powinna
   zostać ona napisana. Różne języki programowania charakteryzuje szereg zalet i wad, przykładowo
   najpopularniejszym obecnie wykorzystywanym przy projektowaniu aplikacji mobilnych
@@ -859,16 +860,24 @@
     \caption{Moduł komunikujący się z API żywnościowym}
     \label{fig:app1}
   \end{figure}
+  Do pozyskiwania informacji o składnikach odżywczych zostało wykorzystane API od firmy
+  "Edamam", jako że udostępniało korzystniejszą darmową ofertę, w porównaniu do innych
+  konkurencyjnych API. Jego wadą jest relatywnie niewielka ilość danych żywieniowych,
+  jednak nie nakłada ono ograniczeń do ilości wysyłanych zapytań.
   Początkowo, komunikacja oparta była jedynie na wpisaniu frazy do pola tekstowego, a
-  następnie potwierdzeniu za pomocą przycisku. 
+  następnie potwierdzeniu za pomocą przycisku. Informacja o jedzeniu była następnie
+  przekazywana do obiektu API, jako oddzielnego ekranu, co ułatwiło wymianę danych.
+  Ekrany we Flutterze są układane na sobie w postaci stosu, gdzie podstawowym jest ekran
+  opisany jako główny, a każdy kolejny nakładany jest na poprzedni. Po znalezieniu
+  pożądanego wyniku i zwróceniu go przez API, ekran ten był usuwany ze stosu, a pozyskane
+  dane przekazywane były do ekranu głównego.  
   \begin{figure}[H]
     \centering
     \includegraphics[width=.9\textwidth]{app_dev_2.PNG}
     \caption{Pole tekstowe, oraz przycisk zatwierdzający wpisaną frazę}
     \label{fig:app2}
   \end{figure}
-  Po naciśnięciu przycisku wyświetlał się ekran ładowania, podczas którego aplikacja odbiera
-  potrzebne informacje, a następnie przechowywane były one w odpowiedniej liście.
+  Informacje pozyskane z API przechowywane były w odpowiedniej liście.
   Dodany został przycisk, pozwalający przejść na ekran ukazujący wszystkie wyszukane
   produkty i wyświetlający je w formie wierszy.
   \begin{figure}[H]
@@ -878,10 +887,10 @@
     \label{fig:app3}
   \end{figure}
   Następnym ważnym krokiem było zaimplementowanie speech to text i zintegrowanie go z
-  projektem. Istnienie biblioteki dla Flutter'a udostępniającej dostęp do wbudowanego w
+  projektem. Istnienie biblioteki dla Flutter'a dającej dostęp do wbudowanego w
   telefon i opartego na technologii Google rozpoznawania głosu w dużym stopniu ułatwiło
   cały proces. Moduł ten wymaga od użytkownika zezwolenia na używanie mikrofonu, dostępu do
-  internetu, a także najnowszej wersji domyślnej w większości systemów aplikacji "Google"
+  internetu, a także najnowszej wersji domyślnej w większości systemów aplikacji "Google",
   do poprawnego jego działania. Po przytrzymaniu przycisku ze znakiem mikrofonu, telefon
   wydaje dźwięk sygnalizujący rozpoczęcie nasłuchiwania, a następnie po odsłuchaniu
   wypowiedzianej frazy, wysyła zapytanie do API żywnościowego zwracającego pożądany produkt.
@@ -906,18 +915,57 @@
   i dokąd wysyłane będą informacje o zjedzonych produktach.
   \begin{figure}[H]
     \centering
-    \includegraphics[width=.9\textwidth]{app_dev_5.PNG}
+    %\includegraphics[width=.9\textwidth, height=.5\textheight]{app_dev_5.PNG}
+    \includegraphics[scale=0.7]{app_dev_5.PNG}
     \caption{Metody wysyłające, oraz odbierające dane z bazy danych}
     \label{fig:app5}
   \end{figure}
+  Działający system komunikacji z bazą danych pozwolił na dodanie do aplikacji kalendarza,
+  umożliwiającego po kliknięciu w dany dzień, sprawdzenie jego podsumowania.
+  }
 
+  \subsection{Aplikacja od strony użytkownika}{
+
+  }
 }
 
 \section{Podsumowanie}
 {
+  Praca miała na celu stworzenie aplikacji mobilnej, mającej za zadanie wspomóc użytkownika
+  w prowadzeniu notatek świadczących o dziennym spożyciu kalorii, ułatwiając cały proces
+  przy pomocy wykorzystania technologii "speech to text". Autorowi udało się osiągnąć wszystkie
+  założone wcześniej cele, jednak aplikacja nadal posiadać będzie możliwość dalszego rozwoju,
+  poprzez dodawanie wielu brakujących, lecz opcjonalnych funkcjonalności,
+  co zwiększy jej atrakcyjność wobec konkurencji. W przypadku chęci wydania jej na rynek,
+  należałoby zainwestować w lepszej jakości API żywnościowe, jako że obecnie wykorzystywane
+  w aplikacji API firmy "Edamam" jest ograniczone pod względem ilości udostępnianych
+  informacji w wersji darmowej, jednak nadal jest znacznie lepszym rozwiązaniem niż
+  darmowe wersje konkurencyjnych API i w obecnej formie aplikacji jego działanie jest
+  zadowalające.
+
+  Pierwszy rozdział przedstawia problematykę, oraz definiuje cel, oraz zakres pracy.
+  Drugi rozdział opiera się na przedstawieniu informacji potrzebnych do zrozumienia
+  jej istoty, oraz rozwiązań w niej zastosowanych. Skupia się on nie tylko na teorii
+  dotyczącej samych funkcjonalności aplikacji, ale także ukazuje rolę jaką pełni w
+  dzisiejszych czasach rynek aplikacji mobilnych, oraz zawiera w sobie analizę trzech
+  najpopularniejszych, konkurencyjnych rozwiązań. Trzeci rozdział posiada dokładne opisy
+  technologii, wykorzystanych w procesie tworzenia aplikacji, natomiast rozdział czwarty
+  poświęcony jest jego przebiegowi.
+
+  Rynek aplikacji mobilnych rozwija się prężnie już od wielu lat, dlatego kwestią czasu
+  jest powstanie innego rozwiązania wykorzystującego w sobie technologię "speech to text".
+  Zaproponowana aplikacja może jednak stanowić źródło inspiracji dla osób chcących podjąć
+  się takiego zadania i pomóc w jego implementacji. Proces pisania pracy pozwolił pokazać
+  potencjał frameworku Flutter, pomimo faktu, że jest to relatywnie nowa technologia i
+  pozwala stwierdzić, iż będzie on prawdopodobnie zyskiwał na popularności w przeciągu
+  następujących lat. Jest on prosty do opanowania, ale również oferuje szeroki wachlarz
+  możliwości, nie tylko poprzez ciągłe rozwijanie przez firmę Google, ale także dzięki
+  wsparciu dla społeczności, która jest w stanie tworzyć własne "pluginy" w formie
+  gotowych do zintegrowania z projektem widget'ów, udostępnianych na stronie
+  "https://pub.dev/", co bezpośrednio przyspiesza proces tworzenia aplikacji.
 }
 
-\section{Indeks rysunków}
+\section{Indeks rysunków} 
 
 \section{Bibliografia}
 {
