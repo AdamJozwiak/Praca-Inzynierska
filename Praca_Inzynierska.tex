@@ -30,6 +30,14 @@
 \begin{document}
 \begin{sloppypar}
 \includepdf{Strona_Tytulowa.pdf}
+\renewcommand\listfigurename{\section{Indeks rysunków}}
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{%
+    #1%
+    \\\hspace{\linewidth}%
+    Źródło: #2%
+  }%
+}
 
 \tableofcontents
 \newpage
@@ -137,7 +145,7 @@
     \begin{figure}[H]
       \centering
       \includegraphics[width=.9\textwidth]{android_chart.png}
-      \caption{Wykres udziału w rynku poszczególnych mobilnych systemów operacyjnych na przestrzeni 10 lat}
+      \captionsource{Wykres udziału w rynku poszczególnych mobilnych systemów operacyjnych na przestrzeni 10 lat}{https://gs.statcounter.com/os-market-share/mobile/worldwide}
       \label{fig:android}
     \end{figure}
     Łatwa dostępność, ilość urządzeń na których jest on zainstalowany, szeroki wachlarz
@@ -152,13 +160,13 @@
     \begin{figure}[H]
       \centering
       \includegraphics[width=.9\textwidth]{systems_chart1.png}
-      \caption{Komputery, a smartphony na przestrzeni lat 2013-2016}
+      \captionsource{Komputery, a smartphony na przestrzeni lat 2013-2016}{https://gs.statcounter.com/os-market-share/desktop-mobile-tablet/worldwide/yearly-2013-2016-bar}
       \label{fig:2013}
     \end{figure} 
     \begin{figure}[H]
       \centering
       \includegraphics[width=.9\textwidth]{systems_chart2.png}
-      \caption{Komputery, a smartphony na przestrzeni lat 2016-2019}
+      \captionsource{Komputery, a smartphony na przestrzeni lat 2016-2019}{https://gs.statcounter.com/os-market-share/desktop-mobile-tablet/worldwide/yearly-2016-2019-bar}
       \label{fig:2016}
     \end{figure} 
     Urządzenia mobilne były i są w stanie zaoferować dużą większą wygodę 
@@ -915,17 +923,194 @@
   i dokąd wysyłane będą informacje o zjedzonych produktach.
   \begin{figure}[H]
     \centering
-    %\includegraphics[width=.9\textwidth, height=.5\textheight]{app_dev_5.PNG}
     \includegraphics[scale=0.7]{app_dev_5.PNG}
     \caption{Metody wysyłające, oraz odbierające dane z bazy danych}
     \label{fig:app5}
   \end{figure}
   Działający system komunikacji z bazą danych pozwolił na dodanie do aplikacji kalendarza,
   umożliwiającego po kliknięciu w dany dzień, sprawdzenie jego podsumowania.
+
+  Posiadając już wszystkie najważniejsze funkcjonalności, ostatnim krokiem było dodanie paru
+  pomniejszych modułów, jak przykładowo przedstawianie informacji w postaci kołowych "progress
+  barów", rozwinięcie już istniejących modułów o dodatkowe metody, jak i uporządkowanie kodu, oraz
+  przebudowanie interfejsu, aby był on faktycznie przejrzysty i funkcjonalny dla
+  przeciętnego użytkownika.
   }
 
   \subsection{Aplikacja od strony użytkownika}{
+    Początkowo, w fazie rozwijania aplikacji jej wygląd służył jedynie testowaniu funkcjonalności,
+    przedstawiając jedynie biały ekran z kilkoma opcjami.
 
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.85]{screen_home_oldest.PNG}
+      \caption{Pierwsza wersja ekranu głównego}
+      \label{fig:screen_oldest}
+    \end{figure}
+
+    W tej wersji kalendarz nie był jeszcze działający a cała górna sekcja ekranu służyła wyłącznie
+    w celach podglądowych. Po wpisaniu odpowiedniej frazy w pole tekstowe, a następnie kliknięciu
+    guzika "Search food info", aplikacja łączyła się z API żywnościowym i zwracała informacje
+    o znalezionym jedzeniu. Całą listę można było następnie zobaczyć po kliknięciu przycisku
+    "Check your food", jednak lista ta była ukazywana w formie wierszy zawierających jedynie
+    połączony tekst przedstawiający same wartości liczbowe zjedzonych składników. Informacje te
+    były nieczytelne dla jakiegokolwiek użytkownika. Aplikacja posiadała już jednak działający
+    moduł "speech to text", jednak nie był on w żaden sposób zabezpieczony i często był powodem
+    zaprzestania działania aplikacji.
+  
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.9]{screen_home_old.PNG}
+      \caption{Ekran główny po dodaniu kalendarza}
+      \label{fig:screen_old}
+    \end{figure}
+
+    Po dodaniu kalendarza ekran zaczął coraz bardziej przypominać finalną formę, chociaż
+    brakowało w nim jeszcze kilku funkcjonalności. Suma zjedzonych danego dnia kalorii
+    przedstawiana była w postaci tekstu i służyła w głównej mierze testowaniu działania
+    kalendarza, brakowało także informacji o innych wartościach odżywczych. W wersji tej
+    znajdował się także przycisk, którego działanie było stale zmieniane w zależności od
+    potrzeb przetestowania danej funkcjonalności. Moduł "speech to text" był już w pełni
+    działający, a użytkownik poprzez przytrzymanie zielonego przycisku przedstawiającego
+    mikrofon mógł wyszukać interesującą go żywność.
+
+    \textbf{Finalna wersja interfejsu aplikacji}
+
+    Pierwszym ekranem jaki napotka nowy użytkownik jest ekran logowania.
+
+    \begin{figure}[H]
+      \centering
+      \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{screen_login.PNG}
+        \caption{Ekran logowania}
+        \label{fig:screen_login}
+      \end{subfigure}%
+      \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{screen_register.PNG}
+        \caption{Ekran rejestracji}
+        \label{fig:screen_register}
+      \end{subfigure}
+      \caption{Ekrany logowania i rejestracji}
+      \label{fig:screens_login}
+    \end{figure} 
+
+    W przypadku, gdy użytkownik nie posiada jeszcze konta, ma on możliwość kliknięcia na
+    widoczny w prawym górnym rogu ekranu przycisk, który podmieni wyświetlany ekran na ekran
+    rejestracji. Same ekrany niewiele się od siebie różnią pod kątem wizualnym, jedynie
+    funkcjonalnością, oraz zawartym tekstem.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.9]{screen_loading.PNG}
+      \caption{Ekran ładowania}
+      \label{fig:screen_loading}
+    \end{figure}
+
+    W momencie gdy aplikacja potrzebuje załadować potrzebne jej do funkcjonowania informacje,
+    jak przykładowo po logowaniu, lub podczas kontaktowania się z API w celu pobrania
+    informacji o jedzeniu, użytkownikowi ukazywany jest ekran ładowania, przedstawiający animację
+    kręcącego się, przerwanego okręgu.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.9]{screen_home.PNG}
+      \caption{Finalny ekran główny}
+      \label{fig:screen_home}
+    \end{figure} 
+
+    W finalnej wersji aplikacji, strona główna jest przedstawiona w bardziej przejrzysty
+    sposób, ukazując najważniejsze nabyte wartości odżywcze w postaci zapełniających się
+    "progress barów", a także dokładnej informacji tekstowej. Pole tekstowe służące
+    wyszukiwaniu jedzenia zostało zmniejszone, a nawet może zostać ukryte po kliknięciu
+    przycisku "Search by text" w momencie gdy pole jest puste. Aby wejść do zakładki ukazującej
+    spożyte jedzenie, użytkownik musi kliknąć w przycisk "Food" znajdujący się na nagłówku
+    aplikacji. Po prawo od niego możliwa jest opcja wylogowania się z aplikacji, która przeniesie
+    użytkownika z powrotem na ekran logowania.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.9]{screen_home_diff_day.PNG}
+      \caption{Ekran główny z wybranym innym dniem}
+      \label{fig:screen_home_diff_day}
+    \end{figure}
+
+    Po kliknięciu odpowiedniego dnia na kalendarzu wygląd wykresów zmienia się w zależności
+    od informacji jakie posiada w sobie baza danych. Domyślnie, wartości są zerowe.
+
+    \begin{figure}[H]
+      \centering
+      \begin{subfigure}{.33\textwidth}
+        \centering
+        \includegraphics[width=.95\linewidth]{screen_home_diff_day.PNG}
+        \caption{Kalendarz tygodniowy}
+        \label{fig:screen_calendar1}
+      \end{subfigure}%
+      \begin{subfigure}{.33\textwidth}
+        \centering
+        \includegraphics[width=.95\linewidth]{screen_home_calendar2.PNG}
+        \caption{Kalendarz dwutygodniowy}
+        \label{fig:screen_calendar2}
+      \end{subfigure}%
+      \begin{subfigure}{.33\textwidth}
+        \centering
+        \includegraphics[width=.95\linewidth]{screen_home_calendar3.PNG}
+        \caption{Kalendarz miesięczny}
+        \label{fig:screen_calendar3}
+      \end{subfigure}%
+      \caption{Tryby wyświetlania kalendarza}
+      \label{fig:screens_calendar}
+    \end{figure}
+
+    Kalendarz posiada 3 różne tryby wyświetlania zmieniane poprzez kliknięcie zielonego
+    przycisku obok nazwy obecnego miesiąca. Wyświetlane moduły są przedstawione w formie
+    przewijalnej listy, przez co są w stanie dynamicznie dostosować swoją pozycję na ekranie.
+    Sprawia to, że użytkownik nadal ma dostęp do wszystkich funkcjonalności, niezależnie od
+    wyświetlanej formy kalendarza.
+
+    \begin{figure}[H]
+      \centering
+      \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{clickable_radial.PNG}
+        \caption{Przycisk do zmiany dziennego spożycia}
+        \label{fig:clickable_radial}
+      \end{subfigure}%
+      \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{screen_changeIntake_alert.PNG}
+        \caption{Okienko do zmiany dziennego spożycia}
+        \label{fig:intake_alert}
+      \end{subfigure}
+      \caption{Zmiana rekomendowanego dziennego spożycia wartości odżywczych}
+      \label{fig:change_intake}
+    \end{figure} 
+
+    Użytkownik jest w stanie zmienić ustawienia rekomendowanego dziennego spożycia dla każdej z
+    wartości odżywczych, poprzez kliknięcie w odpowiednie dla tej wartości podsumowanie.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[scale=0.9]{screen_consumed.PNG}
+      \caption{Ekran spożytego jedzenia}
+      \label{fig:screen_consumed}
+    \end{figure}
+
+    Ostatnim ekranem w aplikacji jest ten przedstawiający podsumowanie wszystkich zjedzonych
+    danego dnia produktów. Informacje przedstawiane są w odpowiedniej kolejności:
+    \begin{itemize}
+      \item Zdjęcie produktu
+      \item Ilość danego produktu
+      \item Nazwa produktu
+      \item Kalorie
+      \item Tłuszcze
+      \item Białka
+    \end{itemize}
+    Użytkownik ma możliwość usunięcia niechcianego wpisu poprzez kliknięcie przycisku
+    znajdującego się na końcu przedstawiającego produkt wiersza. W przypadku, gdy API nie
+    jest w stanie zwrócić odpowiedniego dla produktu zdjęcia, zastępowane jest ono ogólnym
+    zdjęciem, przedstawiającym grafikę wielu produktów spożywczych.
   }
 }
 
@@ -964,8 +1149,7 @@
   gotowych do zintegrowania z projektem widget'ów, udostępnianych na stronie
   "https://pub.dev/", co bezpośrednio przyspiesza proces tworzenia aplikacji.
 }
-
-\section{Indeks rysunków} 
+\listoffigures
 
 \section{Bibliografia}
 {
