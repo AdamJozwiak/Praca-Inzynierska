@@ -83,7 +83,10 @@
     różnego rodzaju aplikacje, mające jeszcze bardziej ułatwić to, i tak już trywialne
     zadanie.
 
-    Choć na rynku istnieje wiele aplikacji udostępniających taką funkcjonalność,
+    Choć na rynku istnieje wiele aplikacji udostępniających taką funkcjonalność, jak
+    przykładowo: "Fitatu", "Yazio", "Fatsecret", których dokładniejsze omówienie znaleźć
+    można w rozdziale zatytułowanym 
+    \hyperref[sec:analysis]{"Analiza konkurencyjnych rozwiązań"},
     używanie ich jest często zadaniem nieprzyjemnym i czasochłonnym, polegającym
     na wykonaniu całych serii kliknięć przeprowadzających użytkownika z jednego menu
     do drugiego, w celu wyszukania i dodania składników do listy spożytych artykułów,
@@ -154,7 +157,7 @@
     \begin{figure}[H]
       \centering
       \includegraphics[width=.9\textwidth]{android_chart.png}
-      \captionsource{Wykres udziału w rynku poszczególnych mobilnych systemów operacyjnych na przestrzeni 10 lat}{https://gs.statcounter.com/os-market-share/mobile/worldwide}
+      \captionsource{Wykres udziału w rynku poszczególnych mobilnych systemów operacyjnych na przestrzeni 10 lat}{\cite{os}}
       \label{fig:android}
     \end{figure}
     Łatwa dostępność, ilość urządzeń na których jest on zainstalowany, szeroki wachlarz
@@ -169,13 +172,13 @@
     \begin{figure}[H]
       \centering
       \includegraphics[width=.9\textwidth]{systems_chart1.png}
-      \captionsource{Komputery, a smartphony na przestrzeni lat 2013-2016}{https://gs.statcounter.com/os-market-share/desktop-mobile-tablet/worldwide/yearly-2013-2016-bar}
+      \captionsource{Komputery, a smartphony na przestrzeni lat 2013-2016}{\cite{os1}}
       \label{fig:2013}
     \end{figure} 
     \begin{figure}[H]
       \centering
       \includegraphics[width=.9\textwidth]{systems_chart2.png}
-      \captionsource{Komputery, a smartphony na przestrzeni lat 2016-2019}{https://gs.statcounter.com/os-market-share/desktop-mobile-tablet/worldwide/yearly-2016-2019-bar}
+      \captionsource{Komputery, a smartphony na przestrzeni lat 2016-2019}{\cite{os2}}
       \label{fig:2016}
     \end{figure} 
     Urządzenia mobilne były i są w stanie zaoferować dużą większą wygodę 
@@ -488,6 +491,7 @@
     \end{itemize} 
   }
   \subsection{Analiza konkurencyjnych rozwiązań}
+  \label{sec:analysis}
   {
     Istnieje bardzo dużo aplikacji oferujących możliwość liczenia kalorii, jednak w 
     większości różnią się one jedynie szatą graficzną, oraz dostępem do funkcjonalności,
@@ -839,6 +843,14 @@
       \item do przełączania się pomiędzy różnymi trybami służą klawisze:
       "i, a, o, v, ESC, :, ..."
     \end{itemize}
+    Działanie VIM'a nie ogranicza się jedynie do edycji tekstu w ramach jednego pliku.
+    Zezwala on także na otwieranie wielu plików i przetrzymywanie ich w osobnych zakładkach
+    jednocześnie, a nawet zapisywanie stanu otworzonych zakładek co pozwala na łatwe przywrócenie
+    ich w nowej sesji. Umożliwia również podział ekranu horyzontalnie, lub wertykalnie,
+    uruchamianie linux'owych komend bez potrzeby wychodzenia z pliku, bądź budowanie aplikacji z
+    poziomu kodu źródłowego. Użytkownik może także zaznaczać miejsca w kodzie, aby łatwiej móć do
+    nich wrócić, znajdywać i zamieniać słowa, kopiować teksty i przechowywać je w oddzielnych
+    buforach, oraz wiele, wiele innych. \\   
     Przedstawione wyżej opcje to tylko wierzchołek góry lodowej, a poprawne nauczenie
     się możliwości oferowanych przez VIM może zająć wiele miesięcy.
   }
@@ -1146,6 +1158,8 @@
   technologii, wykorzystanych w procesie tworzenia aplikacji, natomiast rozdział czwarty
   poświęcony jest jego przebiegowi.
 
+  \subsection{Perspektywy rozwoju}
+  {
   Rynek aplikacji mobilnych rozwija się prężnie już od wielu lat, dlatego kwestią czasu
   jest powstanie innego rozwiązania wykorzystującego w sobie technologię "speech to text".
   Zaproponowana aplikacja może jednak stanowić źródło inspiracji dla osób chcących podjąć
@@ -1157,18 +1171,23 @@
   wsparciu dla społeczności, która jest w stanie tworzyć własne "pluginy" w formie
   gotowych do zintegrowania z projektem widget'ów, udostępnianych na stronie
   "https://pub.dev/", co bezpośrednio przyspiesza proces tworzenia aplikacji.
+  }
 }
 \listoffigures
 
-\section{Bibliografia}
-{
-  \printbibliography
-  %https://www.oracle.com/pl/database/what-is-database/#link5
-  %https://smartbees.pl/blog/co-jest-api-wszystko-o-interfejsie-programowania-aplikacji
-  %https://www.cdc.gov/nchs/products/databriefs/db360.htm
-  %https://runrepeat.com/gym-membership-statistics
-  %https://fs.siteor.com/ecdl/files/RODZAJE_BAZ_DANYCH_I_ICH_BUDOWA.pdf?1289369360
-}
+\printbibliography[
+heading=bibintoc,
+title={Bibliografia}
+]
+
+% \section{Bibliografia}
+% {
+%   %https://www.oracle.com/pl/database/what-is-database/#link5
+%   %https://smartbees.pl/blog/co-jest-api-wszystko-o-interfejsie-programowania-aplikacji
+%   %https://www.cdc.gov/nchs/products/databriefs/db360.htm
+%   %https://runrepeat.com/gym-membership-statistics
+%   %https://fs.siteor.com/ecdl/files/RODZAJE_BAZ_DANYCH_I_ICH_BUDOWA.pdf?1289369360
+% }
 
 \end{sloppypar}
 \end{document}
