@@ -53,6 +53,17 @@
 
 \section{Wstęp}
 {
+  \subsection{Struktura pracy}
+  {
+    Pierwszy rozdział przedstawia problematykę, oraz definiuje cel, oraz zakres pracy.
+    Drugi rozdział opiera się na przedstawieniu informacji potrzebnych do zrozumienia
+    jej istoty, oraz rozwiązań w niej zastosowanych. Skupia się on nie tylko na teorii
+    dotyczącej samych funkcjonalności aplikacji, ale także ukazuje rolę jaką pełni w
+    dzisiejszych czasach rynek aplikacji mobilnych, oraz zawiera w sobie analizę trzech
+    najpopularniejszych, konkurencyjnych rozwiązań. Trzeci rozdział posiada dokładne opisy
+    technologii, wykorzystanych w procesie tworzenia aplikacji, natomiast rozdział czwarty
+    poświęcony jest jego przebiegowi.
+  }
   \subsection{Problematyka}
   {
     W epoce internetu XXI wieku dostęp do wiedzy jest wyjątkowo łatwy. Każdy ma możliwość
@@ -110,10 +121,16 @@
     natomiast wygląd aplikacji, oraz interakcje pomiędzy poszczególnymi modułami
     zarządzane są przy pomocy frameworku \emph{Flutter}.
   }
-  %\subsection{Keywords}
-  %{
-
-  %}
+  \subsection{Prawa autorskie}
+  {
+    Oświadczam, że przekładana praca inżynierska została napisana samodzielnie i nie narusza
+    praw autorskich w rozumieniu ustawy z dnia 4 lutego 1994 roku o prawie autorskim
+    i prawach pokrewnych (j.t. Dz. U. z 2016 r. poz. 666, z późn. zm.) oraz dóbr
+    osobistych chronionych prawem cywilnym, a także nie zawiera danych i informacji,
+    które mogły zostać uzyskane w sposób niedozwolony. Nie była ona także wcześniej podstawą
+    żadnej innej urzędowej procedury związanej z nadawaniem dyplomów wyższej uczelni lub
+    tytułów zawodowych.
+  }
 }
 
 \section{Teoria}
@@ -854,6 +871,24 @@
     Przedstawione wyżej opcje to tylko wierzchołek góry lodowej, a poprawne nauczenie
     się możliwości oferowanych przez VIM może zająć wiele miesięcy.
   }
+  \subsection{Technologie niewykorzystane w projekcie}
+  {
+    Równie popularnym rozwiązaniem w przypadku tworzenia aplikacji mobilnych co Flutter, jest Kotlin -
+    język programowania opierający swoje działanie na maszynie wirtualnej Javy, wykorzystany w przypadku
+    popularnych aplikacji takich jak "Netflix", "Tinder", bądź "Pinterest". W przeciwieństwie do
+    Flutter'a, sam w sobie jest on językiem programowania, a więc tworzenie na nim aplikacji jest
+    zadaniem dużo bardziej czasochłonnym. O ile Flutter sam zajmuje się generowaniem na ekranie
+    gotowych, jednak wysoce modyfikowalnych elementów z których programista może korzystać, co w
+    wielkim stopniu przyspiesza proces projektowania interfejsu użytkownika, tak w Kotlin
+    zarówno "back-end", jak i "front-end" muszą zostać stworzone od zera. W celu przechowywania
+    danych, pierwszym pomysłem było stworzenie relacyjnej bazy danych opartej na języku SQL, jednak
+    prostota informacji w aplikacji sprawiła, że było to rozwiązanie bezsensowne.
+    MongoDB miało być docelową nierelacyjną bazą danych na której opierać się miał projekt, ale
+    musiałaby ona działać na zewnętrznym serwerze, w przypadku chęci wydania aplikacji. Odpowiedzią
+    na ten problem okazał się być udostępniany przez Google "Cloud Firestore", pozwalający za darmo i 
+    w łatwy sposób utworzyć bazę danych, przechowywaną w chmurze, bez dodatkowych opłat. Co więcej,
+    posiada on własny system "autentykacji", umożliwiający łatwe i bezpieczne logowanie do systemu.
+  }
 }
 
 \section{Proces powstawania aplikacji}
@@ -1139,24 +1174,34 @@
 {
   Praca miała na celu stworzenie aplikacji mobilnej, mającej za zadanie wspomóc użytkownika
   w prowadzeniu notatek świadczących o dziennym spożyciu kalorii, ułatwiając cały proces
-  przy pomocy wykorzystania technologii "speech to text". Autorowi udało się osiągnąć wszystkie
-  założone wcześniej cele, jednak aplikacja nadal posiadać będzie możliwość dalszego rozwoju,
-  poprzez dodawanie wielu brakujących, lecz opcjonalnych funkcjonalności,
-  co zwiększy jej atrakcyjność wobec konkurencji. W przypadku chęci wydania jej na rynek,
-  należałoby zainwestować w lepszej jakości API żywnościowe, jako że obecnie wykorzystywane
-  w aplikacji API firmy "Edamam" jest ograniczone pod względem ilości udostępnianych
-  informacji w wersji darmowej, jednak nadal jest znacznie lepszym rozwiązaniem niż
+  przy pomocy wykorzystania technologii "speech to text". Autorowi udało się stworzyć program
+  ukazujący najważniejsze wartości odżywcze w przejrzystych wykresach pierścieniowych, które
+  określają dzienne zapotrzebowanie na podstawie wcześniej założonej docelowej wartości,
+  modyfikowalnej przez użytkownika, w przypadku takiej potrzeby. Ma on także dostęp do
+  wbudowanego kalendarza, udzielającego informacji na temat wszystkich produktów dodanych od
+  początku użytkowania aplikacji. Użytkownik ma możliwość wyszukania interesującego go
+  artykułu spożywczego przy pomocy wyszukiwarki tekstowej, bądź poprzez przytrzymanie przycisku
+  uruchamiającego algorytm odpowiedzialny za rozpoznawanie mowy. Po dodaniu produktu, dane na
+  ekranie głównym są automatycznie aktualizowane, a szczegóły o wszystkich spożytych artykułach
+  można sprawdzić poprzez kliknięcie przycisku przekierowującego do ekranu podsumowującego. 
+  Aby móc korzystać z aplikacji, wymagane jest od nowego użytkownika utworzenie
+  konta składającego się z maila, oraz hasła, a jedynym jego celem, jest przechowywanie informacji
+  o produktach spożytych i udostępnianie tych danych niezależnie od używanego urządzenia.
+  Program nie wysyła żadnych informacji mailowych, ani nie potrzebuje potwierdzenia rejestracji,
+  aby zmniejszyć ilość wstępnego zaangażowania od osoby użytkującej, co może zniechęcić do
+  dalszego korzystania. Takie rozwiązanie jednak, upodatnia system na "cyberataki", przykładowo
+  poprzez zapełnienie bazy danych sztucznymi kontami, co w efekcie uniemożliwiłoby tworzenie
+  nowych profilów.
+
+  Pomimo faktu, iż autorowi udało się osiągnąć wszystkie założone wcześniej cele, aplikacja nadal
+  posiadać będzie możliwość dalszego rozwoju, poprzez dodawanie wielu brakujących, opcjonalnych
+  funkcjonalności, co zwiększy jej atrakcyjność wobec konkurencji. 
+  W przypadku chęci wydania jej na rynek, priorytetowym problemem do zaadresowania jest zabezpieczenie
+  procesu tworzenia kont. Należałoby także zainwestować w lepszej jakości API żywnościowe, jako że
+  obecnie wykorzystywane w aplikacji API firmy "Edamam" jest ograniczone pod względem ilości
+  udostępnianych informacji w wersji darmowej, jednak nadal jest znacznie lepszym rozwiązaniem niż
   darmowe wersje konkurencyjnych API i w obecnej formie aplikacji jego działanie jest
   zadowalające.
-
-  Pierwszy rozdział przedstawia problematykę, oraz definiuje cel, oraz zakres pracy.
-  Drugi rozdział opiera się na przedstawieniu informacji potrzebnych do zrozumienia
-  jej istoty, oraz rozwiązań w niej zastosowanych. Skupia się on nie tylko na teorii
-  dotyczącej samych funkcjonalności aplikacji, ale także ukazuje rolę jaką pełni w
-  dzisiejszych czasach rynek aplikacji mobilnych, oraz zawiera w sobie analizę trzech
-  najpopularniejszych, konkurencyjnych rozwiązań. Trzeci rozdział posiada dokładne opisy
-  technologii, wykorzystanych w procesie tworzenia aplikacji, natomiast rozdział czwarty
-  poświęcony jest jego przebiegowi.
 
   \subsection{Perspektywy rozwoju}
   {
@@ -1165,8 +1210,8 @@
   Zaproponowana aplikacja może jednak stanowić źródło inspiracji dla osób chcących podjąć
   się takiego zadania i pomóc w jego implementacji. Proces pisania pracy pozwolił pokazać
   potencjał frameworku Flutter, pomimo faktu, że jest to relatywnie nowa technologia i
-  pozwala stwierdzić, iż będzie on prawdopodobnie zyskiwał na popularności w przeciągu
-  następujących lat. Jest on prosty do opanowania, ale również oferuje szeroki wachlarz
+  pozwala stwierdzić, iż będzie on prawdopodobnie zyskiwać na popularności w przeciągu
+  następujących lat. Jest prosty do opanowania, ale również oferuje szeroki wachlarz
   możliwości, nie tylko poprzez ciągłe rozwijanie przez firmę Google, ale także dzięki
   wsparciu dla społeczności, która jest w stanie tworzyć własne "pluginy" w formie
   gotowych do zintegrowania z projektem widget'ów, udostępnianych na stronie
